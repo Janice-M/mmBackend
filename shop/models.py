@@ -14,6 +14,6 @@ class Customer(models.Model):
         self.save()
         
     @classmethod
-    def get_profile(cls, id):
-        profile = Customer.objects.get(user=id)
-        return Customer
+    def get_customer(cls, id):
+        customer = Customer.objects.get(user=id)
+        return customer
