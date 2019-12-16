@@ -4,7 +4,19 @@ from django.contrib.auth.decorators import login_required
 import datetime as dt
 from .models import *
 from .forms import *
-from .email import *
 
 # Create your views here.
 
+def register(request):
+    
+    '''
+    view function for registering a new customer
+    '''
+    if request.method=='POST':
+        form=UserRegistrationForm(request.POST)
+
+        
+    else:
+        form=UserRegistrationForm()
+
+    return render(request,'registration/registration_form.html',{'form':form})
