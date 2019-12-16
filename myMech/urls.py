@@ -17,7 +17,7 @@ from django.contrib import admin
 
 from django.urls import include, path
 
-from pics import views
+from shop import views
 
 from django.conf.urls.static import static
 
@@ -25,12 +25,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    ''' urls to link to app '''
     path( '', include('shop.urls')),
-    
-    ''' url for registration '''
-    
     path ('accounts/', include (registration.backends.simple.urls)),
 ]
 
 
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
