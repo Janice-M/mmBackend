@@ -21,6 +21,7 @@ from pics import views
 
 from django.conf.urls.static import static
 
+''' end of imports '''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
