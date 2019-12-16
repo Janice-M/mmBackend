@@ -18,4 +18,12 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    ''' urls to link to app '''
+    path( '', include('shop.urls')),
+    
+    ''' url for registration '''
+    
+    path ('accounts/', include (registration.backends.simple.urls)),
 ]
+
+
