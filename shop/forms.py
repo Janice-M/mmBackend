@@ -6,3 +6,4 @@ class NewCustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         
+        fields = ('userName', 'email')
