@@ -13,10 +13,10 @@ def register(request):
     view function for registering a new customer
     '''
     if request.method=='POST':
-        form=UserRegistrationForm(request.POST)
+        form=newCustomerForm(request.POST)
 
         
     else:
-        form=UserRegistrationForm()
+        form=newCustomerForm()
 
     return render(request,'registration/registration_form.html',{'form':form})
