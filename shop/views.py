@@ -14,7 +14,9 @@ def register(request):
     '''
     if request.method=='POST':
         form=newCustomerForm(request.POST)
-
+         if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
         
     else:
         form=newCustomerForm()
