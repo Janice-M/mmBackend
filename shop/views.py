@@ -7,6 +7,8 @@ from .forms import *
 
 # Create your views here.
 
+@login_required(login_url='/accounts/login/')
+
 def register(request):
     
     '''
