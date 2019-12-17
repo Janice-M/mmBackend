@@ -17,7 +17,9 @@ def register(request):
          if form.is_valid():
             name = form.cleaned_data['your_name']
             email = form.cleaned_data['email']
-        
+            newCustomer = Customer(userName=userName, email=email) 
+            recipient.save()
+            HttpResponseRedirect('inder')
     else:
         form=newCustomerForm()
 
