@@ -19,7 +19,7 @@ def register(request):
             email = form.cleaned_data['email']
             newCustomer = Customer(userName=userName, email=email) 
             recipient.save()
-            HttpResponseRedirect('inder')
+            HttpResponseRedirect('index')
     else:
         form=newCustomerForm()
 
