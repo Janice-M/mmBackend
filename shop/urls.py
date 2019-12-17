@@ -7,5 +7,5 @@ from . import views
 
 urlpatterns = [
     path('',views.register,name='register'),
-
+    rl(r'^accounts/', include('registration.backends.simple.urls')),
 ]
