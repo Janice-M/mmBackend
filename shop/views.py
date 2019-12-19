@@ -16,7 +16,7 @@ def register(request):
     '''
     if request.method=='POST':
         form=newCustomerForm(request.POST)
-         if form.is_valid():
+        if form.is_valid():
             name = form.cleaned_data['your_name']
             email = form.cleaned_data['email']
             newCustomer = Customer(userName=userName, email=email) 
