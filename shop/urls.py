@@ -6,6 +6,6 @@ from . import views
 ''' end of importations '''
 
 urlpatterns = [
-    path('',views.register,name='register'),
+"""     path('',views.register,name='register'), """
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
