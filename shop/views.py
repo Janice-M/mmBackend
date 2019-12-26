@@ -33,4 +33,5 @@ def register(request):
 #products view
 
 class Home (ListView):
-    
+    model = Product
+    template_name = 'products/home.html'
