@@ -28,3 +28,9 @@ def register(request):
         form=newCustomerForm()
 
     return render(request,'registration/registration_form.html',{'form':form})
+
+
+#products view
+
+class Home (ListView):
+    
