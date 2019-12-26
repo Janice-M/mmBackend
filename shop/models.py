@@ -29,11 +29,25 @@ class Category (models.Model):
     
   #Product Model
   
-  class Product(models.model):
+class Product(models.model):
+    mainimage=models.ImageField(upload_to='products/',blank=True)
+    name= models.CharField(max_length=300)
+    slug = models.SlugField()
+        category = models.ForeignKey(Category, on_delete=models.CASCADE)
+        preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
+        detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
+        price = models.FloatField()
+        
+        
+        def__str__(self):
+            return self.name
+        
+
+        
+    class Service(models.model):
         mainimage=models.ImageField(upload_to='products/',blank=True)
         name= models.CharField(max_length=300)
         slug = models.SlugField()
-        category = models.ForeignKey(Category, on_delete=models.CASCADE)
         preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
         detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
         price = models.FloatField()
