@@ -17,3 +17,7 @@ class Customer(models.Model):
     def get_customer(cls, id):
         customer = Customer.objects.get(user=id)
         return customer
+    
+    
+class Category (models.Model):
+    
