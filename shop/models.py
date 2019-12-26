@@ -26,3 +26,8 @@ class Category (models.Model):
     
     def__str__(self):
         return self.title
+    
+  #Product Model
+  
+  class Product(models.model):
+        
