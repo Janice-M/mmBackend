@@ -23,3 +23,5 @@ class Category (models.Model):
     title = models.CharField(max_length=300)
     primaryCategory= models.BooleanField(default=False)
     
+    def__str__(self):
+        return self.title
