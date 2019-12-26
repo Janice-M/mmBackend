@@ -18,6 +18,7 @@ class Customer(models.Model):
         customer = Customer.objects.get(user=id)
         return customer
     
+#category model
     
 class Category (models.Model):
     title = models.CharField(max_length=300)
