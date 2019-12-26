@@ -46,7 +46,7 @@ class Product(models.model):
 #class service
 
 class Service(models.model):
-    mainimage=models.ImageField(upload_to='products/',blank=True)
+    mainimage=models.ImageField(upload_to='services/',blank=True)
     name= models.CharField(max_length=300)
     slug = models.SlugField()
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
