@@ -30,4 +30,5 @@ class Category (models.Model):
   #Product Model
   
   class Product(models.model):
+        mainimage=models.ImageField(upload_to='products/',blank=True)
         
