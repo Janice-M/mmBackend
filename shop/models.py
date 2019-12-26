@@ -20,4 +20,6 @@ class Customer(models.Model):
     
     
 class Category (models.Model):
+    title = models.CharField(max_length=300)
+    primaryCategory= models.BooleanField(default=False)
     
