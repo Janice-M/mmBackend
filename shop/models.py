@@ -31,4 +31,4 @@ class Category (models.Model):
   
   class Product(models.model):
         mainimage=models.ImageField(upload_to='products/',blank=True)
-        
+        name= models.CharField(max_length=300)
