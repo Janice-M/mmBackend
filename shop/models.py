@@ -43,7 +43,8 @@ class Product(models.model):
         return self.name
         
 
-        
+#class service
+
 class Service(models.model):
     mainimage=models.ImageField(upload_to='products/',blank=True)
     name= models.CharField(max_length=300)
