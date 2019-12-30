@@ -4,9 +4,8 @@ from django.db import models
 # Create your models here.
 
 
-    
+
 #category model
-    
 class Category (models.Model):
     title = models.CharField(max_length=300)
     primaryCategory= models.BooleanField(default=False)
