@@ -28,9 +28,11 @@ from django.conf import settings
 ''' end of imports '''
 
 urlpatterns = [
-    path('', include('products.urls', namespace='mainapp')),
+    path('', include('shop.urls', namespace='mainapp')),
     path('admin/', admin.site.urls),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+]
+
+
 
 
 

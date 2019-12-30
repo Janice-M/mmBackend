@@ -10,12 +10,12 @@ class Category (models.Model):
     title = models.CharField(max_length=300)
     primaryCategory= models.BooleanField(default=False)
     
-    def__str__(self)
+    def __str__ (self):
         return self.title
     
 #Product Model
 
-class Product(models.model):
+class Product(models.Model):
     mainimage=models.ImageField(upload_to='products/',blank=True)
     name= models.CharField(max_length=300)
     slug = models.SlugField()
@@ -25,13 +25,13 @@ class Product(models.model):
     price = models.FloatField()
         
         
-    def__str__(self):
+    def __str__(self):
         return self.name
         
 
 #class service
 
-class Service(models.model):
+class Service(models.Model):
     mainimage=models.ImageField(upload_to='services/',blank=True)
     name= models.CharField(max_length=300)
     slug = models.SlugField()
@@ -40,5 +40,5 @@ class Service(models.model):
     price = models.FloatField()
         
         
-    def__str__(self):
+    def __str__(self):
         return self.name
