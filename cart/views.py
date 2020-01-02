@@ -111,3 +111,8 @@ def decreaseCart(request, slug):
             messages.info(request, f"{item.name} quantity has updated.")
             return redirect("mainapp:cart-home")
         else:
+            messages.info(request, f"{item.name} quantity has updated.")
+            return redirect("mainapp:cart-home")
+        else:
+            messages.info(request, "You do not have an active order")
+        return redirect("mainapp:cart-hom
