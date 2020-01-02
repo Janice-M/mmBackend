@@ -93,3 +93,5 @@ def decreaseCart(request, slug):
         user=request.user,
         ordered=False
     )
+    if order_qs.exists():
+        order = order_qs[0]
