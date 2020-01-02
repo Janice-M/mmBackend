@@ -34,6 +34,11 @@ class Order(models.Model):
     def __str__(self):
         return self.user.username
     
-    
+    def get_totals(self):
+        total = 0
+        for order_item in self.orderitems.all():
+            total += order_item.get_total()
+        
+        return total
     
     
