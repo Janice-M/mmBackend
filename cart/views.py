@@ -95,3 +95,10 @@ def decreaseCart(request, slug):
     )
     if order_qs.exists():
         order = order_qs[0]
+        
+        # check if the order item is in the order
+        if order.orderitems.filter(item__slug=item.slug).exists():
+            order_item = Cart.objects.filter(
+                item=item,
+                user=request.user
+            )[0]
