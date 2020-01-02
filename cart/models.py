@@ -19,7 +19,10 @@ class Cart(models.Model):
     def __str__ (self):
         return f'{self.quantity} of {self.item.name}'
     
-    
+    # Getting the total price 
+
+    def get_total(self):
+        return self.item.price * self.quantity
 #ordering after adding to cart model
 
 class Order(models.Model):
@@ -30,3 +33,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    
+    
+    
