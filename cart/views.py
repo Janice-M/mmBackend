@@ -85,3 +85,11 @@ def CartView(request):
     else:
         messages.warning(request, "You do not have an active order at my mech")
         return redirect("core:home")
+#decrease
+
+def decreaseCart(request, slug):
+    item = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
