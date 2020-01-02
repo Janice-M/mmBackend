@@ -108,3 +108,6 @@ def decreaseCart(request, slug):
             else:
                 order.orderitems.remove(order_item)
                 order_item.delete()
+            messages.info(request, f"{item.name} quantity has updated.")
+            return redirect("mainapp:cart-home")
+        else:
