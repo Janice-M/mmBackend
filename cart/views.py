@@ -102,3 +102,7 @@ def decreaseCart(request, slug):
                 item=item,
                 user=request.user
             )[0]
+            if order_item.quantity > 1:
+                    order_item.quantity -= 1
+                order_item.save()
+            else:
