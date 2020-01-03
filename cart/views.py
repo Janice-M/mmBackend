@@ -62,7 +62,7 @@ def remove_from_cart(request, slug):
             messages.info(request, "This item was removed from your cart.")
             return redirect("mainapp:home")
         else:
-            messages.info(request, "This item was not in your cart")
+            messages.info(request, "This part was not in your cart")
             return redirect("mainapp:home")
     else:
         messages.info(request, "You do not have an active order")
