@@ -1,10 +1,7 @@
 from django.contrib.auth import get_user_model
 from shop.models import Product
 from django.db import models
-# Create your models here.
-
-
-#Get the customer model
+# Create your models here
 
 User=get_user_model()
 
