@@ -1,16 +1,19 @@
 from rest_framework import serializers
 from .models import Category, Product, Service
-class studentSerializer(serializers.ModelSerializer):
+
+#model serializers 
+
+class categorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Students
+        model = Category
         fields = '__all__'
-class studentSerializer(serializers.ModelSerializer):
+class productSerializer(serializers.ModelSerializer):
         class Meta:
-        model = Students
+        model = Product
         fields = '__all__'     
-class studentSerializer(serializers.ModelSerializer):
+class serviceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Students
+        model = Service
         fields = '__all__'
         
         
