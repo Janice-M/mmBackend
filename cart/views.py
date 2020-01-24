@@ -104,7 +104,7 @@ def decreaseCart(request, slug):
             )[0]
             if order_item.quantity > 1:
                     order_item.quantity -= 1
-                order_item.save()
+                    order_item.save()
             else:
                 order.orderitems.remove(order_item)
                 order_item.delete()
@@ -113,6 +113,6 @@ def decreaseCart(request, slug):
         else:
             messages.info(request, f"{item.name} quantity of spares has updated.")
             return redirect("mainapp:cart-home")
-        else:
-            messages.info(request, "You do not have an active order on my mech")
+    else:
+        messages.info(request, "You do not have an active order on my mech")
         return redirect("mainapp:cart-hom
