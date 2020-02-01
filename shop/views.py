@@ -15,5 +15,6 @@ class ProductView(APIView):
 class ServiceView(APIView):
     def get(self, request):
         services = Service.objects.all()
+        return Response({"services": services})
         
         
