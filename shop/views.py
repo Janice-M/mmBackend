@@ -8,6 +8,7 @@ from .models import Product, Service
 class ProductView(APIView):
     def get(self, request):
         products = Product.objects.all()
+        return Response({"products": products})
     
     # get method for all services
        
