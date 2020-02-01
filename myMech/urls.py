@@ -28,7 +28,7 @@ from django.conf import settings
 ''' end of imports '''
 
 urlpatterns = [
-    path('', include('shop.urls', namespace='mainapp')),
+    path('api/', include('shop.urls')),
     path('admin/', admin.site.urls),
 ]
 
