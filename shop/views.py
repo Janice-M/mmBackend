@@ -16,16 +16,16 @@ class ProductView(APIView):
             product = request.data.get('product')
 
         # Create a product on mech from the above data
-        serializer = ProductSerializer(data=product)
-        if serializer.is_valid(raise_exception=True):
-            product_saved = serializer.save()
-        return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
+            serializer = ProductSerializer(data=product)
+            if serializer.is_valid(raise_exception=True):
+                product_saved = serializer.save()
+            return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
     
     def delete(self, request, pk):
         # Get object with this pk
-    product = get_object_or_404(Product.objects.all(), pk=pk)
-    product.delete()
-    return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
+        product = get_object_or_404(Product.objects.all(), pk=pk)
+        product.delete()
+        return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
     
     # get method for all services
     
