@@ -17,3 +17,7 @@ from django.views.generic import ListView
 class Home (ListView):
     model = Product
     template_name = 'products/home.html'
+
+class Service (ListView):
+    model = Service
+    template_name ='services/service.html'
