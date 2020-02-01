@@ -9,7 +9,7 @@ class ProductView(APIView):
     def get(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
-        return Response({"articles": serializer.data})
+        return Response({"products": serializer.data})
         
     
     # get method for all services
