@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'cart',
     'shop',
     'bootstrap4',
     'django.contrib.admin',
@@ -79,10 +78,8 @@ WSGI_APPLICATION = 'myMech.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mech',
-        'USER': 'moringa',
-    'PASSWORD':'**kwasync',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'newdb3.sqlite3'),
     }
 }
 
