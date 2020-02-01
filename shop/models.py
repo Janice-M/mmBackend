@@ -14,6 +14,9 @@ class Category (models.Model):
         return self.title
     
 #Product Model
+class User(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
 
 class Product(models.Model):
     mainimage=models.ImageField(upload_to='products/',blank=True)
