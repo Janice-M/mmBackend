@@ -7,10 +7,14 @@ class categorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
-class productSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
         class Meta:
         model = Product
-        fields = '__all__'     
+        fields = '__all__' 
+        author_id = serializers.IntegerField()
+        
+        def create(self, validated_data):
+        return Product.objects.create(**validated_data)    
 class serviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
