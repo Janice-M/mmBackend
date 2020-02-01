@@ -1,23 +1,18 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
-import datetime as dt
-from .models import *
-from .forms import *
-from django.views.generic import ListView
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from .models import Product, Service
 
-# Create your views here.
+#getting all products
 
-
-
-
-#products view
-
-class Home (ListView):
-    model = Product
-    template_name = 'products/home.html'
-
-class Service (ListView):
-    model = Service
-    template_name ='services/service.html'
+class ProductView(APIView):
+    def get(self, request):
+        products = Product.objects.all()
+    
+    # get method for all services
+       
+class ServiceView(APIView):
+    def get(self, request):
+        services = Service.objects.all()
+        
+        
