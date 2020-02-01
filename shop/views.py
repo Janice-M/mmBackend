@@ -10,6 +10,16 @@ class ProductView(APIView):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response({"products": serializer.data})
+    
+    
+    def post(self, request):
+            product = request.data.get('product')
+
+        # Create a product on mech from the above data
+        serializer = ProductSerializer(data=product)
+        if serializer.is_valid(raise_exception=True):
+            product_saved = serializer.save()
+        return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
         
     
     # get method for all services
