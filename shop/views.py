@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Product, Service
-
+from .serializers import ProductSerializer
 #getting all products
 
 class ProductView(APIView):
@@ -22,7 +22,7 @@ class ProductView(APIView):
             return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
     
     def delete(self, request, pk):
-        # Get object with this pk
+        # Get object with this ps
         product = get_object_or_404(Product.objects.all(), pk=pk)
         product.delete()
         return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
