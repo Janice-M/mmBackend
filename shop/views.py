@@ -22,7 +22,7 @@ class ProductView(APIView):
             return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
     
     def delete(self, request, pk):
-        # Get object with this pk
+        # Get object 
         product = get_object_or_404(Product.objects.all(), pk=pk)
         product.delete()
         return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
