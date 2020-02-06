@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Category, Product, Service
 
-#model serializers 
+#model
 
 class categorySerializer(serializers.ModelSerializer):
     class Meta:
