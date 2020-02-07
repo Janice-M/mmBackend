@@ -40,7 +40,7 @@ class car(models.Model):
     mainimage=models.ImageField(upload_to='products/',blank=True)
     name= models.CharField(max_length=300)
     slug = models.SlugField()
-    parts= models.CharField(max_length=300)
+    
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     
     def __str__(self):
