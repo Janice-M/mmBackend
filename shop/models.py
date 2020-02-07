@@ -19,6 +19,7 @@ class User(models.Model):
     email = models.EmailField()
 
 class Product(models.Model):
+    
     mainimage=models.ImageField(upload_to='products/',blank=True)
     name= models.CharField(max_length=300)
     slug = models.SlugField()
@@ -30,8 +31,24 @@ class Product(models.Model):
         
     def __str__(self):
         return self.name
-        
 
+
+#class car
+        
+class car(models.Model):
+    
+    mainimage=models.ImageField(upload_to='products/',blank=True)
+    name= models.CharField(max_length=300)
+    slug = models.SlugField()
+    parts= models.CharField(max_length=300)
+    preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
+    
+    def __str__(self):
+        return self.name
+    
+    
+        
+    
 #class service
 
 class Service(models.Model):
