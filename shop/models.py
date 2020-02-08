@@ -48,7 +48,7 @@ class car(models.Model):
     
         
     
-#class service
+
 
 class Service(models.Model):
     mainimage=models.ImageField(upload_to='services/',blank=True)
