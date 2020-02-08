@@ -33,7 +33,6 @@ class Product(models.Model):
         return self.name
 
 
-#class car
         
 class car(models.Model):
     
