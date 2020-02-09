@@ -1,10 +1,5 @@
 from django.db import models
 
-
-
-
-
-#category model
 class Category (models.Model):
     title = models.CharField(max_length=300)
     primaryCategory= models.BooleanField(default=False)
