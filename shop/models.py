@@ -4,10 +4,9 @@ class Category (models.Model):
     title = models.CharField(max_length=300)
     primaryCategory= models.BooleanField(default=False)
     
-    def __str__ (self):
-        return self.title
-    
-
+    def __str__(self):
+        """Return a human readable representation of the model instance."""
+        return "{}".format(self.name)
 class User(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
