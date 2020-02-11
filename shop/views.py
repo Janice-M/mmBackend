@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Product, Service
-from .serializers import ProductSerializer
+from .models import *
+from .serializers import *
 #getting all products
 
 class ProductView(APIView):
@@ -32,6 +32,11 @@ class ProductView(APIView):
 class ServiceView(APIView):
     def get(self, request):
         services = Service.objects.all()
+        return Response({"services": services})
+    
+class CarView(APIView):
+    def get(self, request):
+        services = Car.objects.all()
         return Response({"services": services})
         
         

@@ -28,7 +28,7 @@ class Product(models.Model):
 
 
         
-class car(models.Model):
+class Car(models.Model):
     
     mainimage=models.ImageField(upload_to='products/',blank=True)
     name= models.CharField(max_length=300)
