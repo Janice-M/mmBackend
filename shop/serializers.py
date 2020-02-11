@@ -6,13 +6,10 @@ from .models import Category, Product, Service
 class categorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['title', 'primaryCategory']
 class ProductSerializer(serializers.ModelSerializer):
         
-            
-            mainimage=serializers.ImageField()
-            name= serializers.CharField(max_length=300)
-            slug = serializers.SlugField()
+            model = ['mainimage', 'name','category', 'preview_text', 'detail_text', 'price']
             
             
         
