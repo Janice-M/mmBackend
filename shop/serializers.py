@@ -10,7 +10,7 @@ class categorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
         
             model = Product
-            fields= ('mainimage', 'name','category', 'preview_text', 'detail_text', 'price')
+            fields= ['mainimage', 'name','category', 'preview_text', 'detail_text', 'price']
             
             
         
