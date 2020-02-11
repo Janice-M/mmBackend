@@ -13,6 +13,7 @@ app_name='products'
 
 urlpatterns = [
     path('products/', ProductView.as_view()),
+    
     path('services/', ServiceView.as_view()),
     path('cars/', CarView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls'))
