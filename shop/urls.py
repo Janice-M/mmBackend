@@ -13,4 +13,5 @@ app_name='products'
 
 urlpatterns = [
     path('products/', ProductView.as_view()),
+    url(r'^api-auth/', include('rest_framework.urls'))
 ]
