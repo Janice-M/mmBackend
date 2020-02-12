@@ -20,7 +20,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
-    price = models.FloatField()
+    price = models.FloatFi
         
         
     def __str__(self):
