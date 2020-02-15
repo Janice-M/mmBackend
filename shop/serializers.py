@@ -20,12 +20,6 @@ class ProductSerializer(serializers.ModelSerializer):
         
             def create(self, validated_data):
                 return Product.objects.create(**validated_data) 
-            def delete(self, request, pk):
-        # Get object with this pk
-                article = get_object_or_404(Article.objects.all(), pk=pk)
-    article.delete()
-    return Response({"message": "Article with id `{}` has been deleted.".format(pk)},status=204   
-    
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
