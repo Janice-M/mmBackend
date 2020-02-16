@@ -10,7 +10,7 @@ class Category (models.Model):
 
 class User(models.Model):
     name = models.CharField(max_length=255)
-    email = models.EmailField()
+    email =
 
 class Product(models.Model):
     
