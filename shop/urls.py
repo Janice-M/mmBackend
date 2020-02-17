@@ -9,7 +9,7 @@ from . views import ProductView,ServiceView, CarView, UserCreate
 
 ''' end of importations '''
 #app name
-app_name='shop'
+
 
 
 urlpatterns = [
