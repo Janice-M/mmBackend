@@ -6,13 +6,13 @@ from rest_framework import status
 
 # Create your tests here.
 
-class AccountsTest(APITestCase):
+class ShopTest(APITestCase):
     def setUp(self):
         # We want to go ahead and originally create a user. 
         self.test_user = User.objects.create_user('testuser', 'test@example.com', 'testpassword')
 
         # URL for creating an account.
-        self.create_url = reverse('account-create')
+        self.create_url = reverse('shop:User')
 
     def test_create_user(self):
         """
