@@ -7,6 +7,14 @@ from .models import *
 from .serializers import *
 #getting all products
 
+class UserCreate(APIView):
+    """ 
+    Creating a user account
+    """
+
+    def post(self, request, format='json'):
+        return Response('hello')
+                        
 class ProductView(APIView):
     def get(self, request):
         products = Product.objects.all()
