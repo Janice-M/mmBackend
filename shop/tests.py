@@ -13,18 +13,21 @@ class ShopTest(APITestCase):
 
         # URL for creating an account.
         self.create_url = reverse('abc')
-
-    def test_create_user(self):
+def test_create_user(self):
         """
         Ensure we can create a new user and a valid token is created with it.
         """
         data = {
-            'username': 'jan',
-            'email': 'janice@example.com',
-            'password': 'weirdpassword'
-        }
+                'username': 'jan',
+                'email': 'sheabutter@example.com',
+                'password': 'weridopassword'
+                }
 
         response = self.client.post(self.create_url , data, format='json')
+        user = User.objects.latest('id')
+        ...
+        token = Token.objects.get(user=user)
+        self.assertEqual(response.data['token'], token.key)
 
         # We want to make sure we have two users in the database..
         self.assertEqual(User.objects.count(), 2)
