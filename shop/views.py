@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from shop.serializers import UserSerializer
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 from .models import *
 from .serializers import *
 #getting all products
