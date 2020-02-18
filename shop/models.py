@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
 
+
 #this user class inherits from django contrib fields
 
 class User(User):
