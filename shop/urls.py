@@ -14,7 +14,7 @@ from . views import ProductView,ServiceView, CarView, UserCreate
 
 urlpatterns = [
     path('products/', ProductView.as_view()),
-    path('user/', UserCreate.as_view()),
+    path('user/', UserCreate.as_view(), name='abc'),
     path('services/', ServiceView.as_view()),
     path('cars/', CarView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls'))

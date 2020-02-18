@@ -26,6 +26,7 @@ SECRET_KEY = '3t^ebpdcq39wwe3s81$t@)8&hj%9t3)plr#litpc1&5w#minvr'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+  
 
 
 # Application definition
