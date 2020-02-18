@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from .models import *
 from .serializers import *
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 #getting all products
 
 class UserCreate(APIView):
@@ -24,7 +27,19 @@ class UserCreate(APIView):
                 return Response(json, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-                        
+
+
+class LoginView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        content = {
+            'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+            'auth': unicode(request.auth),  # None
+        }
+        return Response(content)
+    
 class ProductView(APIView):
     def get(self, request):
         products = Product.objects.all()

@@ -30,6 +30,8 @@ from django.conf import settings
 urlpatterns = [
     path('api/', include('shop.urls')),
     path('admin/', admin.site.urls),
+
+    path('api/auth/', include('djoser.urls.authtoken')),
 ]
 
 

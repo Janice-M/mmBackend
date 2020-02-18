@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 
 
 #this user class inherits from django contrib fields
@@ -9,6 +12,8 @@ from rest_framework.authtoken.models import Token
 class User(User):
     
     pass
+
+
 
 
 
@@ -39,7 +44,7 @@ class Product(models.Model):
 
         
 class Car(models.Model):
-    
+
     mainimage=models.ImageField(upload_to='products/',blank=True)
     name= models.CharField(max_length=300)
     slug = models.SlugField()
