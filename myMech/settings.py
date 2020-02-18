@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'shop',
+    'rest_framework.authtoken',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
