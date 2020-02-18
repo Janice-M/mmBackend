@@ -101,7 +101,7 @@ class ShopTest(APITestCase):
     def test_create_user_with_preexisting_email(self):
         data = {
             'username': 'testuser2',
-            'email': 'test@example.com',
+            'email': 'janice@example.com',
             'password': 'testuser'
         }
 
