@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APITestCase
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+
 from rest_framework import status
 
 # Create your tests here.
@@ -13,7 +15,7 @@ class ShopTest(APITestCase):
 
         # URL for creating an account.
         self.create_url = reverse('abc')
-def test_create_user(self):
+    def test_create_user(self):
         """
         Ensure we can create a new user and a valid token is created with it.
         """
@@ -104,7 +106,7 @@ def test_create_user(self):
     def test_create_user_with_preexisting_email(self):
         data = {
             'username': 'testuser2',
-            'email': 'janice@example.com',
+            'email': 'test@example.com',
             'password': 'testuser'
         }
 
