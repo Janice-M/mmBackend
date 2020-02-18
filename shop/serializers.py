@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
             required=True,
             validators=[UniqueValidator(queryset=User.objects.all())]
             )
-   username = serializers.CharField(
+    username = serializers.CharField(
             max_length=32,
             validators=[UniqueValidator(queryset=User.objects.all())]
             )
