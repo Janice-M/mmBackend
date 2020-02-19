@@ -72,7 +72,7 @@ class ServiceView(APIView):
         return Response({"services": services})
     
     def post(self, request):
-            product = request.data.get('product')
+            product = request.data.get('service')
 
         # Create a service on mech from the above data
             serializer = ServiceSerializer(data=product)
