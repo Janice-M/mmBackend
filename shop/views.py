@@ -9,7 +9,7 @@ from .serializers import *
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-#getting all products
+#creating a user
 
 class UserCreate(APIView):
     """ 
@@ -40,6 +40,9 @@ class LoginView(APIView):
         }
         return Response(content)
     
+    # this is the api view methods for products
+    
+    
 class ProductView(APIView):
     def get(self, request):
         products = Product.objects.all()
@@ -63,7 +66,7 @@ class ProductView(APIView):
         product.delete()
         return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
     
-    # get method for all services
+    # # this is the api view methods for services
     
 class ServiceView(APIView):
     
