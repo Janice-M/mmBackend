@@ -58,7 +58,8 @@ class ProductView(APIView):
     
     def delete(self, request, pk):
         # Get object 
-        product = get_object_or_404(Product.objects.all())
+        product = get_object_or_404(Product.objects.all(), pk=pk)
+        pk = self.kwargs.get('pk')
         product.delete()
         return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
     
