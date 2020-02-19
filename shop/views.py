@@ -75,10 +75,10 @@ class ServiceView(APIView):
             product = request.data.get('service')
 
         # Create a service on mech from the above data
-            serializer = ServiceSerializer(data=product)
+            serializer = ServiceSerializer(data=service)
             if serializer.is_valid(raise_exception=True):
                 product_saved = serializer.save()
-            return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
+            return Response({"success": "Service '{}' created successfully".format(service_saved.name)})
     
     def delete(self, request, pk):
         # Get object 
