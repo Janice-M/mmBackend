@@ -82,10 +82,11 @@ class ServiceView(APIView):
     
     def delete(self, request, pk):
         # Get object 
-        product = get_object_or_404(Product.objects.all(), pk=pk)
+        product = get_object_or_404(Service.objects.all(), pk=pk)
         pk = self.kwargs.get('pk')
-        product.delete()
-        return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
+        service.delete()
+        return Response({"message": "Service with id `{}` has been deleted.".format(pk)},status=204)
+    
 class CarView(APIView):
     def get(self, request):
         services = Car.objects.all()
