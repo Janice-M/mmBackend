@@ -15,7 +15,7 @@ class UserCreate(APIView):
     """ 
     Creates the user. 
     """
-
+#user creation with the token and all 
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
