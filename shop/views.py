@@ -69,7 +69,7 @@ class ProductView(APIView):
     # # this is the api view methods for services
     
 class ServiceView(APIView):
-    
+    #service get method
     def get(self, request):
         services = Service.objects.all()
         return Response({"services": services})
