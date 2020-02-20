@@ -73,7 +73,7 @@ class ServiceView(APIView):
     def get(self, request):
         services = Service.objects.all()
         return Response({"services": services})
-    
+    #service post method
     def post(self, request):
             service = request.data.get('service')
 
