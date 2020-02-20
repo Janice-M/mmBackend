@@ -75,17 +75,17 @@ class ServiceView(APIView):
         return Response({"services": services})
     
     def post(self, request):
-            product = request.data.get('service')
+            service = request.data.get('service')
 
         # Create a service on mech from the above data
             serializer = ServiceSerializer(data=service)
             if serializer.is_valid(raise_exception=True):
-                product_saved = serializer.save()
+                service_saved = serializer.save()
             return Response({"success": "Service '{}' created successfully".format(service_saved.name)})
     
     def delete(self, request, pk):
         # Get object 
-        product = get_object_or_404(Service.objects.all(), pk=pk)
+        service = get_object_or_404(Service.objects.all(), pk=pk)
         pk = self.kwargs.get('pk')
         service.delete()
         return Response({"message": "Service with id `{}` has been deleted.".format(pk)},status=204)
