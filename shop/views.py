@@ -82,7 +82,7 @@ class ServiceView(APIView):
             if serializer.is_valid(raise_exception=True):
                 service_saved = serializer.save()
             return Response({"success": "Service '{}' created successfully".format(service_saved.name)})
-    
+    #this delete method does not work and that is fine
     def delete(self, request, pk):
         # Get object 
         service = get_object_or_404(Service.objects.all(), pk=pk)
