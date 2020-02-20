@@ -58,7 +58,7 @@ class ProductView(APIView):
             if serializer.is_valid(raise_exception=True):
                 product_saved = serializer.save()
             return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
-    
+    #product delete method does not intentionally work
     def delete(self, request, pk):
         # Get object 
         product = get_object_or_404(Product.objects.all(), pk=pk)
