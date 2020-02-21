@@ -92,7 +92,7 @@ class ServiceView(APIView):
     
 class CarView(APIView):
     def get(self, request):
-        services = Car.objects.all()
-        return Response({"services": services})
+        Car = Car.objects.all()
+        return Response({"cars": cars})
         
         
