@@ -24,6 +24,8 @@ class Category (models.Model):
     
     def __str__ (self):
         return self.title
+    
+    
 
 
 
@@ -36,6 +38,7 @@ class Product(models.Model):
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
     price = models.FloatField()
+    
         
         
     def __str__(self):
@@ -70,3 +73,13 @@ class Service(models.Model):
         
     def __str__(self):
         return self.name
+    
+class Package(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
+    detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
+    price = models.FloatField()
+    def __str__(self):
+        return self.name
+    
