@@ -4,7 +4,7 @@ from django.conf.urls import url
 from . import views
 from rest_framework.authtoken import views
 from django.urls import path, include
-from . views import ProductView,ServiceView, CarView, UserCreate, LoginView
+from . views import ProductView,ServiceView, CarView, UserCreate, LoginView, PackageView
 # from cart.views import add_to_cart, remove_from_cart
 
 
