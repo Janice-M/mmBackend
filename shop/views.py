@@ -95,4 +95,26 @@ class CarView(APIView):
         Car = Car.objects.all()
         return Response({"cars": cars})
         
+    def post(self, request):
+            car = request.data.get('car')
+
+        # Create a product on mech from the above data
+            serializer = CarSerializer(data=product)
+            if serializer.is_valid(raise_exception=True):
+                car_saved = serializer.save()
+            return Response({"success": "Car '{}' created successfully".format(car_saved.name)})
         
+        
+class PackageView(APIView):
+    def get(self, request):
+        Package = Package.objects.all()
+        return Response({"packages": cars})
+        
+    def post(self, request):
+            Package = request.data.get('package')
+
+        # Create a product on mech from the above data
+            serializer = PackageSerializer(data=package)
+            if serializer.is_valid(raise_exception=True):
+                package_saved = serializer.save()
+            return Response({"success": "Package '{}' created successfully".format(package_saved.name)})
