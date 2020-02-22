@@ -18,6 +18,7 @@ urlpatterns = [
     path('user/', UserCreate.as_view(), name='abc'),
     path('services/', ServiceView.as_view()),
     path('cars/', CarView.as_view()),
+    path('packages/', PackageView.as_view()),
     
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api-token-auth/', views.obtain_auth_token),
