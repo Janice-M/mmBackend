@@ -25,7 +25,16 @@ class Category (models.Model):
     def __str__ (self):
         return self.title
     
+class Car(models.Model):
     
+    mainimage=models.ImageField(upload_to='cars/',blank=True)
+    name= models.CharField(max_length=300)
+    slug = models.SlugField()
+    parts= models.CharField(max_length=300)
+    preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
+    
+    def __str__(self):
+        return self.name 
 
 
 
@@ -44,23 +53,17 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
         
-class Car(models.Model):
-
-    mainimage=models.ImageField(upload_to='products/',blank=True)
-    name= models.CharField(max_length=300)
-    slug = models.SlugField()
-    parts= models.CharField(max_length=300)
+    
+class Package(models.Model):
+    mainimage=models.ImageField(upload_to='packages/',blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
+    detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
+    price = models.FloatField()
     
     def __str__(self):
         return self.name
-    
-    
-        
-    
-
 
 class Service(models.Model):
     mainimage=models.ImageField(upload_to='services/',blank=True)
@@ -74,13 +77,5 @@ class Service(models.Model):
     def __str__(self):
         return self.name
     
-class Package(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
-    detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
-    price = models.FloatField()
-    
-    def __str__(self):
-        return self.name
+
     

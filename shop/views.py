@@ -92,14 +92,14 @@ class ServiceView(APIView):
     
 class CarView(APIView):
     def get(self, request):
-        Car = Car.objects.all()
+        cars = Car.objects.all()
         return Response({"cars": cars})
         
     def post(self, request):
             car = request.data.get('car')
 
-        # Create a product on mech from the above data
-            serializer = CarSerializer(data=product)
+        # Create a car on mech from the above data
+            serializer = CarSerializer(data=car)
             if serializer.is_valid(raise_exception=True):
                 car_saved = serializer.save()
             return Response({"success": "Car '{}' created successfully".format(car_saved.name)})

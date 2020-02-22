@@ -30,6 +30,8 @@ class categorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['title', 'primaryCategory']
+        
+        
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         
@@ -42,6 +44,9 @@ class ProductSerializer(serializers.ModelSerializer):
         
             def create(self, validated_data):
                 return Product.objects.create(**validated_data) 
+            
+            
+            
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
