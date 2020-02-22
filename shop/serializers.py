@@ -56,4 +56,13 @@ class CarSerializer(serializers.ModelSerializer):
         fields =  ['mainimage', 'name','category', 'preview_text']
         
         def create(self, validated_data):
-                return Product.objects.create(**validated_data)  
+                return Car.objects.create(**validated_data)  
+            
+            
+class PackageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Package
+        fields =  ['product', 'service','preview_text', 'detail_text', 'price', 'category']
+        
+        def create(self, validated_data):
+                return Package.objects.create(**validated_data)
