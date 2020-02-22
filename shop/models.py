@@ -80,6 +80,7 @@ class Package(models.Model):
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
     price = models.FloatField()
+    category= models.CharField(max_length=300)
     def __str__(self):
         return self.name
     
