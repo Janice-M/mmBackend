@@ -69,7 +69,7 @@ class Service(models.Model):
     mainimage=models.ImageField(upload_to='services/',blank=True)
     name= models.CharField(max_length=300)
     service_serial = models.SlugField( primary_key= True, unique =True)
-    preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
+    preview = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
     price = models.FloatField()
         
