@@ -29,12 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-CORS_ORIGIN_WHITELIST = [
-    'https://mymech.netlify.com',
-    
-    'localhost:3000',
-    '127.0.0.1:3000'
-]
+CORS_ORIGIN_ALLOW_ALL=True
 # Application definition
 
 INSTALLED_APPS = [

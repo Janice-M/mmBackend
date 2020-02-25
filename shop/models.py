@@ -29,7 +29,7 @@ class Car(models.Model):
     
     mainimage=models.ImageField(upload_to='cars/',blank=True)
     name= models.CharField(max_length=300)
-    slug = models.SlugField(primary_key=True, unique=True)
+    engine_number = models.SlugField(primary_key=True, unique=True)
     parts= models.CharField(max_length=300)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     
@@ -66,8 +66,10 @@ class Package(models.Model):
         return self.name
 
 class Service(models.Model):
+    
     mainimage=models.ImageField(upload_to='services/',blank=True)
     name= models.CharField(max_length=300)
+    package = models.ForeignKey(Product, on_delete=models.CASCADE)
     service_serial = models.SlugField( primary_key= True, unique =True)
     preview = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
