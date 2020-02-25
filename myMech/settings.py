@@ -27,14 +27,20 @@ SECRET_KEY = '3t^ebpdcq39wwe3s81$t@)8&hj%9t3)plr#litpc1&5w#minvr'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-  
 
 
+CORS_ORIGIN_WHITELIST = [
+    'https://mymech.netlify.com',
+    
+    'localhost:3000',
+    '127.0.0.1:3000'
+]
 # Application definition
 
 INSTALLED_APPS = [
     
     'shop',
+    'corsheaders',
     'rest_framework.authtoken',
     'bootstrap4',
     'django.contrib.admin',
@@ -48,6 +54,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
