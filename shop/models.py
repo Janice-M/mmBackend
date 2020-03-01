@@ -70,7 +70,7 @@ class Service(models.Model):
     
     mainimage=models.ImageField(upload_to='services/',blank=True)
     name= models.CharField(max_length=300)
-    package = models.ForeignKey(Product, on_delete=models.CASCADE)
+    package = models.ForeignKey(Package, on_delete=models.CASCADE)
     service_serial = models.SlugField( primary_key= True, unique =True)
     preview = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')

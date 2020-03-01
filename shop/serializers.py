@@ -38,7 +38,7 @@ class ProductSerializer(serializers.ModelSerializer):
             model = Product
             
             
-            fields= ['mainimage', 'name',  'preview_text', 'detail_text', 'price']
+            fields= ['mainimage', 'name','car', 'preview_text', 'detail_text', 'price']
             
             
         
@@ -58,7 +58,7 @@ class ServiceSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields =  ['mainimage', 'name','category', 'preview_text']
+        fields =  ['mainimage', '', 'name','category', 'preview_text']
         
         def create(self, validated_data):
                 return Car.objects.create(**validated_data)  
