@@ -38,7 +38,7 @@ class ProductSerializer(serializers.ModelSerializer):
             model = Product
             
             
-            fields= ['mainimage', 'name','car', 'preview_text', 'detail_text', 'price']
+            fields= ['mainimage', 'name', 'preview_text', 'detail_text', 'price']
             
             
         

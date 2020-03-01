@@ -29,7 +29,7 @@ class Car(models.Model):
     
     mainimage=models.ImageField(upload_to='cars/',blank=True)
     name= models.CharField(max_length=300)
-    engine_number = models.SlugField(primary_key=True, unique=True)
+    slug = models.SlugField(primary_key=True, unique=True)
     parts= models.CharField(max_length=300)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     
@@ -44,7 +44,6 @@ class Product(models.Model):
     name= models.CharField(max_length=300)
     slug = models.SlugField(primary_key=True, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')
     price = models.FloatField()
