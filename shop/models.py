@@ -25,7 +25,7 @@ class Car(models.Model):
     
     mainimage=models.ImageField(upload_to='cars/',blank=True)
     name= models.CharField(max_length=300)
-    slug = models.SlugField(primary_key=True)
+    
     parts= models.CharField(max_length=300)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     
