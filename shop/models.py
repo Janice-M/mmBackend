@@ -14,10 +14,6 @@ class User(User):
     pass
 
 
-
-
-
-
 class Category (models.Model):
     title = models.CharField(max_length=300)
     primaryCategory= models.BooleanField(default=False)
@@ -29,7 +25,7 @@ class Car(models.Model):
     
     mainimage=models.ImageField(upload_to='cars/',blank=True)
     name= models.CharField(max_length=300)
-    slug = models.SlugField(primary_key=True, unique=True)
+    slug = models.SlugField(primary_key=True)
     parts= models.CharField(max_length=300)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     
@@ -57,7 +53,7 @@ class Product(models.Model):
     
 class Package(models.Model):
     mainimage=models.ImageField(upload_to='packages/',blank=True)
-    name= models.CharField(max_length=300)
+    name= models.CharField(max_length=300, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     preview_text = models.TextField(max_length=200, verbose_name = 'Preview Text')
     detail_text = models.TextField(max_length=1000, verbose_name ='Detail Text')

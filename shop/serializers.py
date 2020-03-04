@@ -58,7 +58,7 @@ class ServiceSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields =  ['mainimage', '', 'name','category', 'preview_text']
+        fields =  ['mainimage','name','category', 'slug' 'preview_text']
         
         def create(self, validated_data):
                 return Car.objects.create(**validated_data)  

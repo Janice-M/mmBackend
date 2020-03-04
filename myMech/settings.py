@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'myMech.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mech',
+        'NAME': 'mymech',
         'USER':'moringa',
         'PASSWORD':'**kwasync'
     }
