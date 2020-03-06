@@ -3,6 +3,8 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from . import views
 from rest_framework.authtoken import views
+from rest_framework_simplejwt import views as jwt_views
+
 from django.urls import path, include
 from . views import ProductView,ServiceView, CarView, UserCreate, LoginView, PackageView
 # from cart.views import add_to_cart, remove_from_cart
