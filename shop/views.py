@@ -30,7 +30,7 @@ class UserCreate(APIView):
 
 #authentication / token views
 class LoginView(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
