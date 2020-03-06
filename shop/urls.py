@@ -21,6 +21,9 @@ urlpatterns = [
     path('services/', ServiceView.as_view()),
     path('cars/', CarView.as_view()),
     path('packages/', PackageView.as_view()),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+]
     
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api-token-auth/', views.obtain_auth_token),
