@@ -15,7 +15,7 @@ from . views import ProductView,ServiceView, CarView, UserCreate, LoginView, Pac
 
 urlpatterns = [
     path('products/', ProductView.as_view()),
-    path('user/', UserCreate.as_view(), name='abc'),
+    path('users/', UserCreate.as_view(), name='abc'),
     path('services/', ServiceView.as_view()),
     path('cars/', CarView.as_view()),
     path('packages/', PackageView.as_view()),
