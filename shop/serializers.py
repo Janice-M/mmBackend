@@ -11,10 +11,15 @@ class UserSerializer(serializers.ModelSerializer):
             required=True,
             validators=[UniqueValidator(queryset=User.objects.all())]
             )
-    username = serializers.CharField(
+    first_name = serializers.CharField(
+            max_length=32,
+            validators=[UniqueValidator(queryset=User.objects.all())]
+            ) 
+    last_name = serializers.CharField(
             max_length=32,
             validators=[UniqueValidator(queryset=User.objects.all())]
             )
+    
     password = serializers.CharField(min_length=8, write_only=True)
 
     def create(self, validated_data):
@@ -24,7 +29,26 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = ('id','first_name', 'last_name', 'username',  'email', 'password')
+        
+        
+class LoginSerializer(serializers.ModelSerializer):
+    
+    email = serializers.EmailField(
+            required=True,
+            validators=[UniqueValidator(queryset=User.objects.all())]
+            )
+    
+    password = serializers.CharField(min_length=8, write_only=True)
+
+    def post(self, validated_data):
+        user = User.objects.login_user(validated_data['email'],
+                validated_data['password'])
+        return user
+
+    class Meta:
+        model = User
+        fields = ( 'email', 'password')
 
 class categorySerializer(serializers.ModelSerializer):
     class Meta:

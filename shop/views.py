@@ -35,8 +35,8 @@ class LoginView(APIView):
 
     def get(self, request, format=None):
         content = {
-            'user': (request.user),  # `django.contrib.auth.User` instance unicode(request.user),.
-            'auth': (request.auth),  # None
+            'user':unicode (request.user),  # `django.contrib.auth.User` instance unicode(request.user),.
+            'auth': unicode (request.auth),  # None
         }
         return Response(content)
     
