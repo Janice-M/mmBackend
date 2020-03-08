@@ -118,3 +118,5 @@ class PackageView(APIView):
             if serializer.is_valid(raise_exception=True):
                 package_saved = serializer.save()
             return Response({"success": "Package '{}' created successfully".format(package_saved.name)})
+        
+        
