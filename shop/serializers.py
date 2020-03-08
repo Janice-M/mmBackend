@@ -48,7 +48,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class PackageSerializer(serializers.ModelSerializer):
     class Meta:
         
-            model = Product
+            model = Package
             
             
             fields= ['mainimage', 'name', 'preview_text', 'detail_text', 'price']
@@ -77,10 +77,3 @@ class CarSerializer(serializers.ModelSerializer):
                 return Car.objects.create(**validated_data)  
             
             
-class PackageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Package
-        fields =  ['product', 'service','preview_text', 'detail_text', 'price']
-        
-        def create(self, validated_data):
-                return Package.objects.create(**validated_data)
