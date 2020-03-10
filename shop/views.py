@@ -107,11 +107,11 @@ class CarView(APIView):
         
 class PackageView(APIView):
     def get(self, request):
-        Package = Package.objects.all()
-        return Response({"packages": cars})
+        package = Package.objects.all()
+        return Response({"packages": package})
         
     def post(self, request):
-            Package = request.data.get('package')
+            package = request.data.get('package')
 
         # Create a product on mech from the above data
             serializer = PackageSerializer(data=package)

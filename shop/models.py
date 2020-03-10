@@ -70,6 +70,8 @@ class Car(models.Model):
 class User(User):
     
     pass
+
+
 #pakages model
 
 class Package(models.Model):
