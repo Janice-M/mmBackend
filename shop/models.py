@@ -88,4 +88,12 @@ class Package(models.Model):
         return self.name
 
 
-    
+class Order(models.Model):
+
+    name = models.CharField(max_length=300, null=True)
+    slug = models.SlugField(primary_key=True, unique=True)
+    ordered_items = models.ArrayField(models.CharField(max_length=200))
+    total_price = models.FloatField(max_length=1000)
+
+    def __str__(self):
+        return self.name

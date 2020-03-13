@@ -8,6 +8,9 @@ from .models import *
 from .serializers import *
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.mixins import (
+    CreateModelMixin, ListModelMixin
+)
 
 #creating a user
 
@@ -119,4 +122,8 @@ class PackageView(APIView):
                 package_saved = serializer.save()
             return Response({"success": "Package '{}' created successfully".format(package_saved.name)})
         
-        
+        class OrderViewSet(CreateModelMixin, ListModelMixin):
+
+class OrderViewSet(CreateModelMixin, ListModelMixin):
+    serializer_class = OrderSerializer
+    queryset = Order.objects.all()

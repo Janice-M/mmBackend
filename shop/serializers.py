@@ -97,7 +97,12 @@ class CarSerializer(serializers.ModelSerializer):
         model = Car
         fields =  ['mainimage','name','category',  'preview_text']
         
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Car
+        fields =  ['name','total_price', 'ordered_items']
+
         def create(self, validated_data):
-                return Car.objects.create(**validated_data)  
             
             
+                return Order.objects.create(**validated_data)
