@@ -27,9 +27,8 @@ urlpatterns = [
     path('order/', OrderViewSet.as_view()),
 
 
-    
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api-token-auth/', views.obtain_auth_token),
-    
+
     url(r'^get-user-auth-token/', views.obtain_auth_token, name='get_user_auth_token')
 ]
