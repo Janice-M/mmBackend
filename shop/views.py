@@ -8,14 +8,17 @@ from .models import *
 from .serializers import *
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.mixins import (
+    CreateModelMixin, ListModelMixin
+)
 
 #creating a user
 
 class UserCreate(APIView):
-    """ 
-    Creates the user. 
     """
-#user creation with the token and all 
+    Creates the user.
+    """
+#user creation with the token and all
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
@@ -30,7 +33,7 @@ class UserCreate(APIView):
 
 #authentication / token views
 class LoginView(APIView):
-    
+
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
@@ -39,17 +42,17 @@ class LoginView(APIView):
             'auth': unicode (request.auth),  # None
         }
         return Response(content)
-    
+
     # this is the api view methods for products
-    
-    
+
+
 class ProductView(APIView):
     def get(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response({"products": serializer.data})
-    
-    
+
+
     def post(self, request):
             product = request.data.get('product')
 
@@ -60,14 +63,14 @@ class ProductView(APIView):
             return Response({"success": "Product '{}' created successfully".format(product_saved.name)})
     #product delete method does not intentionally work
     def delete(self, request, pk):
-        # Get object 
+        # Get object
         product = get_object_or_404(Product.objects.all(), pk=pk)
         pk = self.kwargs.get('pk')
         product.delete()
         return Response({"message": "Product with id `{}` has been deleted.".format(pk)},status=204)
-    
+
     # # this is the api view methods for services
-    
+
 class ServiceView(APIView):
     #service get method
     def get(self, request):
@@ -84,17 +87,17 @@ class ServiceView(APIView):
             return Response({"success": "Service '{}' created successfully".format(service_saved.name)})
     #this delete method does not work and that is fine
     def delete(self, request, pk):
-        # Get object 
+        # Get object
         service = get_object_or_404(Service.objects.all(), pk=pk)
         pk = self.kwargs.get('pk')
         service.delete()
         return Response({"message": "Service with id `{}` has been deleted.".format(pk)},status=204)
-    
+
 class CarView(APIView):
     def get(self, request):
         cars = Car.objects.all()
         return Response({"cars": cars})
-        
+
     def post(self, request):
             car = request.data.get('car')
 
@@ -103,13 +106,13 @@ class CarView(APIView):
             if serializer.is_valid(raise_exception=True):
                 car_saved = serializer.save()
             return Response({"success": "Car '{}' created successfully".format(car_saved.name)})
-        
-        
+
+
 class PackageView(APIView):
     def get(self, request):
         package = Package.objects.all()
         return Response({"packages": package})
-        
+
     def post(self, request):
             package = request.data.get('package')
 
@@ -118,5 +121,9 @@ class PackageView(APIView):
             if serializer.is_valid(raise_exception=True):
                 package_saved = serializer.save()
             return Response({"success": "Package '{}' created successfully".format(package_saved.name)})
-        
-        
+
+class OrderViewSet(APIView, CreateModelMixin):
+    def get(self, request):
+        orders = Order.objects.all()
+        order_list = OrderSerializer(orders, many=True)
+        return Response({"orders": order_list.data})
